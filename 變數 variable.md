@@ -60,7 +60,7 @@ void func()
 {
     static int a = 100;
     printf("%d\n", a);
-    a += 200;
+    a += 200;   -> new value for a
 }
 ```
 比較此方程式
