@@ -60,7 +60,7 @@ void func()
 {
     static int a = 100;
     printf("%d\n", a);
-    a += 200;   -> new value for a
+    a += 200;   /* new value for a, and will not be removed */
 }
 ```
 比較此方程式
@@ -80,6 +80,6 @@ void func()
 {
     int a = 100;   ->local
     printf("%d\n", a);
-    a += 200;
+    a += 200; /*雖然此時a = 300，但是當此函數結束時，300會被移除*/
 }
 ```
