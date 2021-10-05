@@ -38,7 +38,7 @@ int main()
     return 0
 }
 ```
-## static varial
+## static variable
 宣告於**函數內**的變數。->使用範圍:此函數內
 配置**固定的記憶體空間**(即使函數結束時，變數的值還是可以被保存)
 ```c
@@ -59,6 +59,26 @@ int main()
 void func()
 {
     static int a = 100;
+    printf("%d\n", a);
+    a += 200;
+}
+```
+比較此方程式
+```c
+void func();
+
+int main()
+{
+    func();
+    func();
+    func();
+
+    return 0;
+}
+
+void func()
+{
+    int a = 100;   ->local
     printf("%d\n", a);
     a += 200;
 }
