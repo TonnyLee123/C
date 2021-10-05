@@ -1,9 +1,10 @@
 # 區域/ 全域/ 靜態變數 (local/ global/ static variable)
 
-## 1.區域變數
+## 1.local variable
 宣告於**函數內**的變數。  
-變數的**活動範圍(scope)**(變數可以被使用的範圍): 始於**宣告之處**，終於**函數結束**之時。  
-不同函數哩，可以declear相同變數名稱。
+變數的**活動範圍(scope)**(變數可以被使用的範圍): 始於**宣告之處**，終於**函數結束**之時。
+**生命週期(life cycle)**(variable保留在記憶體的時間):一旦函數A執行完畢，則函數A裡的variable會被銷毀。
+不同函數裡，可以declear相同變數名稱。因為他們有個各自的記憶空間。
 ```c
 int main()
 {
@@ -14,5 +15,51 @@ int main()
     printf("%d", fac(n));   |動
                             |範
     return 0             __ |圍
+}
+```
+## 2.global varible
+宣告於**函數外**的變數。  
+每個函數及程式區段皆可以使用(好處:方便)。
+```c
+int a;  注意: **a以下**都可以使用此variable。執行完後，變數銷毀
+int main(...){...}
+int fac(...){...}
+```
+
+## global varible name == local varible name
+local variable **不受** global 影響
+```c
+int a = 999;
+int main()
+{
+    int a = 1;
+    printf("%d", a);
+    
+    return 0
+}
+```
+## static varial
+宣告於**函數內**的變數。->使用範圍:此函數內
+配置**固定的記憶體空間**(即使函數結束時，變數的值還是可以被保存)
+```c
+static int num;
+```
+```c
+void func();
+
+int main()
+{
+    func();
+    func();
+    func();
+
+    return 0;
+}
+
+void func()
+{
+    static int a = 100;
+    printf("%d\n", a);
+    a += 200;
 }
 ```
