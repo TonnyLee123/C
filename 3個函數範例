@@ -1,0 +1,29 @@
+# 範例一 repeat_printing
+## 列印x次元y次
+```
+void repeat_printing(char, int);
+
+int main()
+{
+
+    char ch;
+    int i;
+    printf("Please enter a character to be printed: ");
+    scanf("%c", &ch);
+    printf("How many characters do you want to print? ");
+    scanf("%d", &i);
+
+    repeat_printing(ch, i);
+    return 0;
+}
+
+void repeat_printing(char C, int I)
+{
+   int x;
+   for(x = 1; x <= I; x++)
+   {
+       printf("%c", C);
+   }
+}
+```
+注: 不同函數中，可使用相同的變數名稱數名稱
