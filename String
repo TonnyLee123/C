@@ -1,17 +1,82 @@
 # 字串
 字串是由字元陣列所組成的(即陣列的元素是字元)。  
-字元 -> 'a'
-字串 -> "a"，"Hello World"
+當string儲存於characters array時，會在最後加上**\0**作為string結束的character，來辨認字串結束的位置。
+字元常數 -> 'a'
+字串常數 -> "a"，"Hello World"
 
 # 字串的宣告與初值的設定
-```
-char 字串名稱[陣列大小]
-```
+
+### 範例一: char 字串名稱[陣列大小];
 ```c
-char name[10] = "TONNY LEE"; /*雖然TONNY LLE含空白只有9個字元，但編譯器會自動在字串結尾處加上**\0(字串結束符號)**，因此必須+1 */
+char char_array[6] = {'H', 'e', 'l', 'l','o', '\0'}; /*大小6可省略*/
 ```
-## 方法二 不填入陣列大小
-不填入陣列大小，讓編譯器依照字串大小來配置記憶體空間。
+
+### 範例二: char 字串名稱[陣列大小] = 字串常數;
 ```c
-char name[] = "TONNY LEE";
+char name[6] = "Hello"; /*雖然Hello含空白只有5個字元，但編譯器會自動在字串結尾處加上**\0(字串結束符號)**，因此必須+1 */
+char name[] = "Hello"; /*不填入陣列大小，讓編譯器自動依照字串大小來配置記憶體空間。*/
+```
+
+# 字串的輸入與輸出函數
+scanf()在讀取字串時有其限制 -> 不能讀取字串裡的空白(tonny lee -> tonny)，因此c提供更好的**get(), puts()**函數，他們的原型都是定義在**stdio.h**。
+
+## gets(get string)
+SYNTAX
+```
+gets(字元陣列名稱)
+```
+
+## puts(put string)
+在螢幕中列印出字串。  
+puts會自動換行，因此printf較常用。
+SYNTAX_1
+```
+puts(字元陣列名稱)
+```
+SYNTAX_2
+```
+puts(字串常數)
+```
+### 範例一 輸入名字
+```c
+int main()
+{   
+    char name[15];
+    puts("What is your name?");
+    
+    gets(name);  /*scanf("%s", name);*/
+    
+    puts("Hi"); 
+    puts(name);
+    puts("how are you?");
+    return 0;
+}
+```
+
+### 範例二 LowwerToUpper
+```c
+void toUpper(char s[]);
+
+int main()
+{   
+    char str[15];
+    printf("Enter a string: ");
+    
+    gets(str); 
+    
+    toUpper(str);
+    printf("轉換後為: %s", str);
+    return 0;
+}
+
+void toUpper(char s[])
+{
+    int i=0;
+    while(s[i]!='\0')             /*如果字串還沒結束，執行以下程式*/
+    {
+        if(s[i]>=97 && s[i]<=122) /*如果是小寫字母*/
+            s[i] = s[i]-32;       /*小寫ASCII-32變大寫*/
+        i++;
+    }
+}
 ```
