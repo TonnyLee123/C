@@ -80,3 +80,56 @@ void toUpper(char s[])
     }
 }
 ```
+# string arrary
+二維陣列來儲存字串。
+
+## 字串陣列的宣告與初值的設定
+SYNTAX_1
+```
+char 字元陣列名稱[字串個數][字串長度];
+```
+SYNTAX_2 宣告同時設值
+"字串常數" 是一維陣列，所以不用{}包覆。
+```
+char 字元陣列名稱[字串個數][字串長度] = {"字串常數1", "字串常數2", ..., "字串常數n"};
+```
+## strimg array元素的引用及存取
+```c
+int main()
+{
+    char member[3][10] = {"tony", "tom", "lily"};
+    int i;
+    
+    for(i=0; i<3; i++)
+    {
+        printf("member[%d] = %s\n", i, member[i]);
+    }
+    return 0;
+} 
+```
+### 範例一 字串陣列的複製
+將arr1的內容複製到arr2
+```c
+int main()
+{
+    char arr1[3][10] = {"tony", "tom", "lily"};
+    char arr2[3][10];
+    int i, j;
+    
+    /*將arr1複製到arr2*/
+    for(i=0; i<3; i++)             /*每個字串*/
+    {
+        for(j=0; j<10; j++)        /*每個字母*/
+            if(arr1[i][j] == '\0') /*當字元為\0跳出for loop*/
+                break;
+            else
+                arr2[i][j] = arr1[i][j];
+        arr2[i][j] = '\0';         /*再把\0補上*/
+    }
+    
+    for(i=0; i<3; i++)
+        printf("arr2[%d] = %s\n", i, arr2[i]);
+    
+    return 0;
+}
+```
