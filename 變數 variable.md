@@ -54,7 +54,7 @@ int main()
     return 0;
 }
 ```
-## static variable
+## 3.static variable
 宣告於**函數內**的變數 -> scope:此函數內。  
 配置**固定的記憶體空間**(即使函數結束時，變數的值還是可以被保存)
 ```c
