@@ -21,9 +21,25 @@ int main()
 宣告於**函數外**的變數。  
 每個函數及程式區段皆可以使用(好處:方便)。
 ```c
-int a;  /*a以下都可以使用此variable。執行完後，變數銷毀*/
-int main(...){...}
-int fac(...){...}
+void func();
+int a;  /*declear a global variable*/
+
+int main()
+{   
+    a = 100;
+    printf("呼叫func之前 a = %d\n", a);
+    
+    func();
+    printf("呼叫func之後 a = %d\n", a);
+    
+    return 0;
+}
+
+void func()
+{
+    a=300;
+    printf("於func()裡 a = %d\n", a);
+}
 ```
 
 ## global varible name == local varible name
