@@ -1,6 +1,6 @@
 # 函數
 
-## 函數的基本架構
+## 一. 函數的基本架構
 
 ### 1.宣告函數原型(prototype)
 ```
@@ -25,7 +25,7 @@ int add(int, int);
 ```
 
 
-## 函數的定義
+## 二. 函數的定義
 ```
 return_type function_name(type1 argument1, type2 argument2, ..)
 {
@@ -50,7 +50,7 @@ int add(int num1, int num2)
 ```
 函數可以放在程式中的任一位置，傳統為放在main()後面，如果放在main()前面，則不用宣告函數原型。
 
-## calling a function
+## 三. calling a function
 第一種: 直接呼叫function
 ```
 hello()
@@ -96,7 +96,7 @@ int add(int num1, int num2)
 }
 ```
 
-## 遞迴函數(recursive)
+## 四. 遞迴函數(recursive)
 **函數本身呼叫自己** 
 範例 factorial function 
 ```c
