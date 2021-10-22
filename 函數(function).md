@@ -57,7 +57,7 @@ int add(int num1, int num2)
 ```
 hello()
 ```
-第二種: 將傳回值放在variable
+第二種: 將傳回值放在variable，用在通常函數有回傳值
 ```
 int sum = add(1, 5)
 ```
