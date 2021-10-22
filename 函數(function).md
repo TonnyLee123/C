@@ -188,3 +188,63 @@ const double pi = 3.14;
 ## 利用#define取代簡易的函數
 define另一個功能是巨集(macro)。  
 macro: 一個簡單的指令能替代多個操作步驟。
+
+### 範例一
+```c
+#include <stdio.h>
+#define SQUARE n*n /* 定義SQUARE為n*n */
+int main()
+{   
+    int n;
+    printf("Input an Integer: ");
+    scanf("%d", &n);
+    
+    printf("%d*%d=%d\n", n, n, SQUARE); /*SQUARE*/
+
+    return 0;
+}
+
+```
+
+### 範例二 使用有引數的macro
+有點像函數。
+```c
+#include <stdio.h>
+#define SQUARE(X) X*X                      /*x = 5*/
+int main()
+{   
+    int n;
+    printf("Input an Integer: ");
+    scanf("%d", &n);                       /*input 5*/
+    
+    printf("%d*%d=%d\n", n, n, SQUARE(n)); /* SQUARE(5)，傳回#define...*/
+
+    return 0;
+}
+```
+
+### 範例三 錯誤 13*13=25
+正解只需括弧起來。(X)*(X)
+```c
+#include <stdio.h>
+#define SQUARE(X) X*X                         
+int main()
+{   
+    int n;
+    printf("Input an Integer: ");
+    scanf("%d", &n);                           /*n = 12*/
+    
+    printf("%d*%d=%d\n", n, n, SQUARE(n + 1)); /* SQUARE(n+1) == n+1*n+1 */
+
+    return 0;
+}
+```
+
+### 使用函數?巨集?
+macro不需要像函數一樣要宣告等等，因為#define所處理的只是字串，將A替換成B，所以他不用考慮變數型態問題。  
+macro    效率高，空間大。  
+function 效率低，空間低。
+
+## #include
+#include除了可以包括C所提供的標頭檔之外，也可以包括自己所撰寫的標頭檔。  
+例如，在程式裡會常用到計算圓，長方形等等的面積，就可以利用#define將這些公式以macro定義，然後存到標頭檔內，讓#include來含括。
