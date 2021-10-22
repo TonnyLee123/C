@@ -17,3 +17,36 @@
 1. 使函數在傳遞陣列或字串更有效率
 2. 較複雜的資料結構，如linked list, binary tree，需透過pointer協助，才能將資料連接再一起。
 3. 函數需要pointer傳達記憶體訊息，例如malloc(), fopen()。
+
+# 記憶體的位址
+ %d 十進位表示位址  
+ %p 十六進位表示位址
+ ```c
+ int main()
+{
+    int a, b = 5;
+    double c = 3.14;
+    printf("a = %d, sizeof(a) = %d, address = %d\n", a, sizeof(a), &a); /*沒給a值，所以會是殘值*/
+    printf("b = %d, sizeof(b) = %d, address = %d\n", b, sizeof(b), &b); /*&位址符號*/
+    printf("c = %f, sizeof(c) = %d, address = %d", c, sizeof(c), &c);   /*%d -> 十進位表示位址*/
+    return 0;
+}
+
+ ```
+ 
+ # 指標變數的宣告
+ pointer所存放的內容為其他變數的address，所以我們根據指標所存放的address，可以找到它所指向的變數內容。  
+ SYNTAX  
+ ```
+ data_type *pointer variable
+ ```
+ "*"將普通變數變成指標變數。  
+ data_type 為指標所指向之變數的型態。  
+ 
+ ### 範例一 
+ ```c
+ int *ptr;       /*宣告一個指向整數的pointer_variable, ptr*/
+ int num = 20;
+ ptr = &num;     /*設值給ptr*/
+ ```
+ 
