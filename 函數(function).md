@@ -26,6 +26,7 @@ int add(int, int);
 
 
 ## 二. 函數的定義
+可以放在任意位置，習慣上是放在main()後面。
 ```
 return_type function_name(type1 argument1, type2 argument2, ..)
 {
