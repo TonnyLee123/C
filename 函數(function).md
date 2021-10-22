@@ -100,7 +100,7 @@ int add(int num1, int num2)
 ```
 
 ## 四. 遞迴函數(recursive)
-**函數本身呼叫自己** 
+**函數本身呼叫自己**  
 解題技巧: 帶數字到題目，找出前後關係，統整出數學公式，再依照數學式打上code。
 ### 範例一 factorial function 
 ```c
