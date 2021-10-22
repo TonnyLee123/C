@@ -100,7 +100,8 @@ int add(int num1, int num2)
 
 ## 四. 遞迴函數(recursive)
 **函數本身呼叫自己** 
-範例 factorial function 
+解題技巧: 帶數字到題目，找出前後關係，統整出數學公式，再依照數學式打上code。
+### 範例一 factorial function 
 ```c
 int main()
 {
@@ -121,6 +122,32 @@ int fac(int n)
     }
     else
         return 1; /*0階 = 1*/
+}
+```
+
+### 範例二 Fibonacci number
+|n|1|2|3|4|5|
+|-|-|-|-|-|-|
+|value|1|1|2|3|5|
+```c
+int fib(int);
+int main()
+{   
+    int m;
+    printf("Enter a month: );
+    scanf("%d", &m);
+    
+    printf("fib(%d) = %d", m, fib(m));
+
+    return 0;
+}
+
+int fib(int m)
+{
+    if(m == 1 || m == 2)
+        return 1;
+    else
+        return (fib(m-1) + fib(m-2));
 }
 ```
 ## 引數傳遞的機制
