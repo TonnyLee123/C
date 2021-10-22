@@ -50,3 +50,23 @@
  ptr = &num;     /*設值給ptr*/
  ```
  
+ # 指標變數的使用
+ 1. 取出**變數位址**
+ - 位址運算子 &
+ - 範例: &num 可取出num的位址
+ 2. 取出指標變數所指向的**變數內容**
+ - 依址取址運算子 *
+ - 範例: *ptr = &num 
+ - 
+### 範例一
+```c
+int main()
+{
+    int a = 20, *ptr;
+    ptr = &a;
+    printf("a = %d, &a = %p\n", a, &a); /*列印出a值，a的位址*/
+    printf("*ptr = %d, ptr = %p, &ptr = %p", *ptr, ptr, &ptr);
+
+    return 0;
+}
+```
