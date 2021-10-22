@@ -43,6 +43,7 @@ int add(int num1, int num2)
     return sum;
 }
 ```
+簡化:
 ```
 int add(int num1, int num2)
 {
