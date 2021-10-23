@@ -100,6 +100,7 @@ int main()
 # 宣告指標變數所指向之型態的重要性
 - 一旦宣告指標變數指標變數所指向的型態後，便不能更改。
 - 不可把A型態的指標指向B型態的變數。
+- 
 ### 範例一 錯誤 分配錯誤的資料型態
 ```c
 int a = 10, *ptri;
@@ -107,5 +108,44 @@ float b = 1.5, *ptrf;
 
 ptri = &b; /*Error*/
 ptrf = &a; /*Error*/
+```
+# 指標與函數
+### 範例一
+```c
+void address(int *); /*prototype中不必變數名稱，所以*表示傳入的是指向變數*/
 
+int main()
+{
+    int a=12;
+    int *ptr = &a;
+    
+    address(&a); /*傳入位址*/
+    address(ptr);/*傳入位址*/
+}
+
+/*定義了一個可以接收指向整數型態的指標(也就是可以接收一個存放整數的位址)*/
+void address(int *p1)  /* *p1=&a */
+{
+    printf("位於address: %p , 儲存的變數為%d\n", p1, *p1);
+}
+```
+### 範例二 透過位址改變呼叫端的內容
+```c
+void add10(int *);
+
+int main()
+{
+    int a=5;
+    printf("before calling add10(), a = %d\n", a);
+    
+    add10(&a); /*傳入a的位址*/
+    
+    printf("after calling add10(), a = %d\n", a);
+    
+}
+
+void add10(int *p1) /* p1 = &a */
+{
+    *p1 = *p1 + 10;  /*直接在a的記憶體中上修改, 所以不用return*/
+}
 ```
