@@ -149,3 +149,48 @@ void add10(int *p1) /* p1 = &a */
     *p1 = *p1 + 10;  /*直接在a的記憶體中上修改, 所以不用return*/
 }
 ```
+
+### 範例三 swap a, b值 錯誤版
+```c
+void swap(int, int);
+
+int main()
+{
+    int a=5, b=100;
+    printf("before calling swap(), a = %d, b = %d\n", a, b);
+    
+    swap(a, b);
+    printf("after calling swap(), a = %d, b = %d\n", a, b);
+    
+}
+
+void swap(int x, int y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+```
+為甚麼錯誤呢? 因為在swap()裡，x,y 屬於local variable，當swap()執行結束時，x,y的值即從記憶體空間抹除。  
+解決方法，直接在記憶體上修改。
+### 修改後
+```c
+void swap(int *, int *);
+
+int main()
+{
+    int a=5, b=100;
+    printf("before calling swap(), a = %d, b = %d\n", a, b);
+    
+    swap(&a, &b); 
+    printf("after calling swap(), a = %d, b = %d\n", a, b);
+    
+}
+
+void swap(int *x, int *y) 
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+```
