@@ -231,3 +231,30 @@ int main()
 }
 ```
 ptr = ptr + 1
+
+# 利用指標傳遞一維陣列到函數裡
+SYNTAX
+```
+傳回值型態 函數名稱(資料型態 *陣列名稱(用來接收一維陣列的位址)){...}
+
+void func(int *arr)
+```
+### 範例一
+```c
+void replace(int *, int, int);
+int main()
+{   
+    int a[5] = {1, 3, 5, 7, 9};
+    int i, num = 99;
+    
+    replace(a, 4, num); /*將陣列a裡的第4個元素換成num(99)*/
+    printf("After replacing: int a[5] = ");
+    for(i=0; i<5; i++)
+        printf("%d ", a[i]);
+    return 0;
+}
+void replace(int *ptr, int n, int num) /* *ptr接收a陣列的位址，然後直接從記憶體中修改值*/
+{
+    *(ptr + n - 1) = num;
+}
+```
