@@ -194,3 +194,40 @@ void swap(int *x, int *y)
     *y = temp;
 }
 ```
+
+# 指標與一維陣列
+1.指標的 arithmetic operation(算術運算): 指標內所存放的位址做加減法運算。
+2.針對它所指的資料型態的大小處理，例如:   
+- ptr 指向一個**整數**，則 ptr + 1 ，表示**+4個byte**，並不是表示將位址的值+1。
+- ptr 指向一個**字元**，則 ptr - 1 ，表示**-1個byte**。
+3.陣列名稱是存放陣列位址的**指標常數(pointer constant)**。
+- 不能更改指向，因為它是constant。
+- 如圖:
+### 範例一 *(a+i)
+```c
+int a[3] = {1, 2, 3};
+printf("a[0] = %d, *(a+0) = %d\n", a[0], *(a+0)); 
+printf("a[1] = %d, *(a+1) = %d\n", a[1], *(a+1));
+printf("a[0] = %d, *(a+2) = %d", a[2], *(a+2));
+
+return 0;
+```
+圖:
+
+### 範例二 
+```c
+int main()
+{
+    int a[3] = {1, 2, 3};
+    int i, sum=0;
+    int *ptr = a; /*指向a[0]*/
+    
+    for(i=0; i<3; i++)
+        sum += *(ptr++);  
+        
+    printf("sum = %d", sum);
+
+    return 0;
+}
+```
+ptr = ptr + 1
