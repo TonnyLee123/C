@@ -258,3 +258,31 @@ void replace(int *ptr, int n, int num) /* *ptr接收a陣列的位址，然後直
     *(ptr + n - 1) = num;
 }
 ```
+### 範例二 函數傳回指標型態的變數
+在函數名稱前加上 *
+```c
+int *maximum(int *);
+int main()
+{   
+    int a[5] = {1, 3, 5, 7, 9};
+    int i, *ptr;
+    
+    printf("array a = ");
+    for(i=0; i<5; i++)
+        printf("%d ", a[i]);
+    ptr = maximum(a);        /*傳入陣列a到maximum()*/
+    printf("\nmaximum = %d", *ptr);    
+    return 0;
+}
+/*接收位址，傳回位址*/
+int *maximum(int *arr) /* *arr接收a陣列的位址*/
+{
+    int i,*max;        /*傳回去*/
+    max = arr;         /*指標max指向a[0]*/
+    for(i=1; i<5; i++)
+        if(*max < *(arr+i))
+            max = arr+i;
+    return max;  
+    
+}
+```
