@@ -1,5 +1,9 @@
-# 區域/ 全域/ 靜態變數 (local/ global/ static variable)
 
+# 變數
+當我們宣告一個variable時，compiler分配合適的記憶體空間給它，同一種型態的變數占相同的記憶體空間。
+
+
+# 區域/ 全域/ 靜態變數 (local/ global/ static variable)
 ## 1.local variable
 宣告於**函數內**的變數。  
 **活動範圍(scope)**(變數可以被使用的範圍): 始於**宣告之處**，終於**函數結束**之時。  
