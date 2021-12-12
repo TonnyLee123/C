@@ -35,8 +35,12 @@ Address(位址): when we declare a variable, the compiler will assign a memory s
  ### 範例一 
  ```c
  int num = 20;
- int *ptr;       /*宣告一個指向integer的pointer_variable, ptr*/
+ int *ptr;       /*宣告 一個指向integer的pointer_variable, ptr*/
  ptr = &num;     /*把num的位址(&num)assign to ptr/
+ 
+ /*Declare pointer_variable and assign value to pointer at the same time*/
+ int num = 20;
+ int *ptr = &num;
  ```
  <img src="./pointer01.JPG" width = "500" height = "200" align=center />
 
@@ -47,11 +51,11 @@ Address(位址): when we declare a variable, the compiler will assign a memory s
  ```
  
  
- # 指標變數的使用
- 1. 位址運算子 &
+## 2.2 & and *
+ 1. & 位址運算子 
  - 取出**變數位址**
  - 範例: &num (取出num的位址)
- 2. 依址取址運算子 *
+ 2. * 依址取址運算子
  - 取出指標變數所指向的**變數內容**
  - 範例: *ptr = &num 
  - 
