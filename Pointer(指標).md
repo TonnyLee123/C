@@ -2,7 +2,7 @@
 指標可以存取變數的值，就像是利用變數名稱存取變數內容。  
 **特殊的變數**，用來存放變數在**記憶體中的位址**  
 Address(位址): when we declare a variable, the compiler will assign a memory space with **unique number** called "address" to it.
-
+- 不論指標變數所指向之變數的型態為何，編譯器都會給它**4個位元組**。
 ## 1.1 依址取值(adress -> variable value)
 當指標ptr指向變數a之後，如果要存取變數a時，便可利用指標ptr找到變數a的address，再由該位址取出所儲存的變數值。  
 ```
@@ -28,10 +28,12 @@ Address(位址): when we declare a variable, the compiler will assign a memory s
  ## 2.1 指標變數的宣告  
  ```
  1. data_type *pointer variable
+ 
  2. data_type* pointer variable
  ```
  "*"將普通變數變成指標變數。  
  data_type 為指標所指向之變數的型態。  
+ 第二種方法可以看成: int*為一個新的形態(指向整數的指標型態)
  ### 範例一 
  ```c
  int num = 20;
@@ -75,6 +77,7 @@ int main()
 ```
 
 ### 範例二 更改一個相同型態的指向對象
+注意!!! 僅限於**相同型態**。
 ```c
 int main()
 {
@@ -87,11 +90,7 @@ int main()
     ptr = &b; /*更改指向對象為b*/
     printf("&b = %p, &ptr = %p, *ptr = %d\n", &b, &ptr, *ptr);
 }
-```
-從中得知只要是變數型態相同，指標可以更改他的指向，使他指向另一個變數。  
-
-指標變數不論他所指向之變數的型態為何，編譯器都會給他4個位元組存放其他變數位址。
-
+```  
 # 宣告指標變數所指向之型態的重要性
 - 一旦宣告指標變數指標變數所指向的型態後，便不能更改。
 - 不可把A型態的指標指向B型態的變數。
@@ -101,13 +100,21 @@ int main()
 int a = 10, *ptri;
 float b = 1.5, *ptrf;
 
-ptri = &b; /*Error*/
-ptrf = &a; /*Error*/
+ptri = &b; /*Error, 將指向int的pointer指向float!!!*/
+ptrf = &a; /*Error, 將指向float的pointer指向int!!!*/
 ```
-# 指標與函數
-### 範例一
+### 3. 指標與函數
+把指標傳入function裡
+```
+return_type function_name (data type *pointer)
+{
+    /*body*/
+}
+```
+### 範例一 接收一個指向整數指標變數的function(也就是可以接收一個整數變數的位址)
+address()
 ```c
-void address(int *); /*prototype中不必變數名稱，所以*表示傳入的是指向變數*/
+void address(int *); /*prototype中不必變數名稱，*表示接收的是pointer*/
 
 int main()
 {
@@ -118,13 +125,13 @@ int main()
     address(ptr);/*傳入位址*/
 }
 
-/*定義了一個可以接收指向整數型態的指標(也就是可以接收一個存放整數的位址)*/
-void address(int *p1)  /* *p1=&a */
+void address(int *p1)  /* *p1=&a; p1 = ptr */
 {
     printf("位於address: %p , 儲存的變數為%d\n", p1, *p1);
 }
 ```
-### 範例二 透過位址改變呼叫端的內容
+### 範例二 透過傳遞位址來改變原本的內容
+透過傳遞a的位址，來改變a的值(a+10)
 ```c
 void add10(int *);
 
