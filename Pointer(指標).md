@@ -104,7 +104,7 @@ ptri = &b; /*Error, 將指向int的pointer指向float!!!*/
 ptrf = &a; /*Error, 將指向float的pointer指向int!!!*/
 ```
 ### 3. 指標與函數
-把指標傳入function裡
+## 3.1 把指標傳入function裡
 ```
 return_type function_name (data type *pointer)
 {
@@ -173,9 +173,9 @@ void swap(int x, int y)
     y = temp;
 }
 ```
-為甚麼錯誤呢? 因為在swap()裡，x,y 屬於local variable，當swap()執行結束時，x,y的值即從記憶體空間抹除。  
-解決方法，直接在記憶體上修改。
-### 修改後
+為甚麼錯誤呢? 因為在swap()裡，x,y 屬於local variable，當swap()執行結束時，x,y的值即從記憶體空間抹除，main()中a, b值根本沒有改變。  
+### 範例三之一 swap a, b值 正確版
+解決方法: 直接在記憶體上修改。
 ```c
 void swap(int *, int *);
 
@@ -196,7 +196,30 @@ void swap(int *x, int *y)
     *y = temp;
 }
 ```
+### 3.2 由function傳出pointer  
+回傳一個 **指向int的指標**
+- int *func(....);  
+- int* func(....);
+```c
+int *max(int*, int*);
 
+int main()
+{
+    int a = 12, b = 17, *ptr;
+    ptr = max(&a, &b);
+    printf("max = %d\n", *ptr);
+
+    return 0;
+}
+
+int *max(int *p1, int *p2) /* 回傳一個 指向int的指標*/
+{
+    if(*p1>*p2)
+        return p1; /*回傳pointer(變數位址)到main()*/
+    else
+        return p2;
+}
+```
 # 指標與一維陣列
 1.指標的 arithmetic operation(算術運算): 指標內所存放的位址做加減法運算。
 2.針對它所指的資料型態的大小處理，例如:   
