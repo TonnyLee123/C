@@ -1,19 +1,20 @@
-# pointer概述
+# 1. Pointer概述
 指標可以存取變數的值，就像是利用變數名稱存取變數內容。  
-指標可以看成一種特殊的變數，用來存放變數在**記憶體中的位址**  
-位址(address): when we declare a variable, the compiler will assign a memory space with **unique number** called "address" to it.
+**特殊的變數**，用來存放變數在**記憶體中的位址**  
+Address(位址): when we declare a variable, the compiler will assign a memory space with **unique number** called "address" to it.
 
-**依址取值**(adress -> variable value): 當指標ptr指向變數a之後，如果要存取變數a時，便可利用指標ptr找到變數a的address，再由該位址取出所儲存的變數值。  
+## 1.1 依址取值(adress -> variable value)
+當指標ptr指向變數a之後，如果要存取變數a時，便可利用指標ptr找到變數a的address，再由該位址取出所儲存的變數值。  
 ```
 指標ptr指向變數a (ptr存放的是 adress of a)
 ```
-![圖片01](./pointer01.JPG)
 宣告一個變數a，值為20，ptr存放a的adress(1400)。compiler也會安排adress給指標變數(1408)
 
-**位元組定址法** 用決定變數的位址，也就是給予記憶體內的每個位元組一個adress，而**變數的adress即是它所佔的位元組裡，第一個位元組的位址**，如下圖。
+## 1.2 位元組定址法
+決定變數的位址，也就是給予記憶體內的每個位元組一個adress，而**變數的adress即是它所佔的位元組裡，第一個位元組的位址**，如下圖。
 ![圖片02](./pointer02.JPG)
 
-# 為甚麼使用指標
+## 1.3 為甚麼使用指標?
 1. 使函數在傳遞陣列或字串更有效率
 2. 較複雜的資料結構，如linked list, binary tree，需透過pointer協助，才能將資料連接再一起。
 3. 函數需要pointer傳達記憶體訊息，例如malloc(), fopen()。
@@ -21,36 +22,24 @@
 # 記憶體的位址
  %d 十進位表示位址  
  %p 十六進位表示位址
- ```c
- int main()
-{
-    int a, b = 5;
-    double c = 3.14;
-    printf("a = %d, sizeof(a) = %d, address = %d\n", a, sizeof(a), &a); /*沒給a值，所以會是殘值*/
-    printf("b = %d, sizeof(b) = %d, address = %d\n", b, sizeof(b), &b); /*&位址符號*/
-    printf("c = %f, sizeof(c) = %d, address = %d", c, sizeof(c), &c);   /*%d -> 十進位表示位址*/
-    return 0;
-}
-
- ```
  
- # 指標變數的宣告
- pointer所存放的內容為其他變數的address，所以我們根據指標所存放的address，可以找到它所指向的變數內容。  
- SYNTAX  
+ # 2 指標變數的使用
+ 
+ ## 2.1 指標變數的宣告  
  ```
  1. data_type *pointer variable
  2. data_type* pointer variable
  ```
  "*"將普通變數變成指標變數。  
  data_type 為指標所指向之變數的型態。  
- 
  ### 範例一 
  ```c
- int *ptr;       /*宣告一個指向整數的pointer_variable, ptr*/
  int num = 20;
- ptr = &num;     /*設值給ptr*/
+ int *ptr;       /*宣告一個指向integer的pointer_variable, ptr*/
+ ptr = &num;     /*把num的位址(&num)assign to ptr/
  ```
- 
+ <img src="./pointer01.JPG" width = "500" height = "200" align=center />
+
  ### 範例二 同時宣告2個指標變數
  ```
  int* ptr1,ptr2;
