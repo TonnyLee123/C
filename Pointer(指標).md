@@ -221,7 +221,7 @@ int *max(int *p1, int *p2) /* 回傳一個 指向int的指標*/
 }
 ```
 # 4. 指標與一維陣列
-- Array_name是**指標常數(pointer constant)**，用來存放**陣列第一個元素的位址**。
+- Array_name是**指標常數(pointer constant)**，用來存放**陣列第一個元素的位址**, 無法更改!!!。
 - **非指標變數**，因為我們不能更改其的指向，因此為**pointer constant**
 ## 4.1 指標的 arithmetic operation(算術運算)
 - 指標內所存放的**位址**做加減法運算。
