@@ -238,14 +238,27 @@ printf("a[0] = %d, *(a+2) = %d", a[2], *(a+2));
 
 return 0;
 ```
-<img src="https://github.com/TonnyLee123/Graphics/upload/main" width = "500" height = "200" align=center />
-### 範例二 
+<img src="https://github.com/TonnyLee123/Graphics/blob/main/IMG_3462.JPG" width = "500" height = "200" align=center />
+
+
+### 範例二 透過指標表示法*(arr + i)取得所有元素的sum
 ```c
+int main()
+{   
+    int arr[3] = {1, 2, 3};
+    int i, sum = 0;
+    for(i=0; i<3; i++){
+        sum = sum + *(arr + i); /*相當於 + a[i]*/
+    }
+    printf("%d", sum);
+    
+}
+
 int main()
 {
     int a[3] = {1, 2, 3};
     int i, sum=0;
-    int *ptr = a; /*指向a[0]*/
+    int *ptr = a;
     
     for(i=0; i<3; i++)
         sum += *(ptr++);  
