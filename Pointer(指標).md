@@ -52,13 +52,15 @@ Address(位址): when we declare a variable, the compiler will assign a memory s
  
  
 ## 2.2 & and *
- 1. & 位址運算子 
+ 1. 位址運算子 &
  - 取出**變數位址**
  - 範例: &num (取出num的位址)
- 2. * 依址取址運算子
+<img src="https://github.com/TonnyLee123/Graphics/blob/main/IMG_3459.JPG" width = "500" height = "200" align=center />
+ 2. 依址取址運算子 *
  - 取出指標變數所指向的**變數內容**
  - 範例: *ptr = &num 
- - 
+<img src="https://github.com/TonnyLee123/Graphics/blob/main/IMG_3460.JPG" width = "500" height = "200" align=center />
+
 ### 範例一
 ```c
 int main()
