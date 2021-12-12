@@ -253,12 +253,15 @@ int main()
     printf("%d", sum);
     
 }
+```
 
+### 範例三 無題目 哈!!!
+```c
 int main()
 {
     int a[3] = {1, 2, 3};
     int i, sum=0;
-    int *ptr = a;
+    int *ptr = a; /將指標指向a[0]*/
     
     for(i=0; i<3; i++)
         sum += *(ptr++);  
@@ -270,14 +273,13 @@ int main()
 ```
 ptr = ptr + 1
 
-# 利用指標傳遞一維陣列到函數裡
-SYNTAX
+# 5.利用指標傳遞一維陣列到函數裡
 ```
-傳回值型態 函數名稱(資料型態 *陣列名稱(用來接收一維陣列的位址)){...}
-
-void func(int *arr)
+arr A[3] = {1, 2, 3};
+func(A)
 ```
-### 範例一
+傳入陣列A到func()，填入array_name即可。
+### 範例一 更改陣列中第n個元素的值為num
 ```c
 void replace(int *, int, int);
 int main()
@@ -291,13 +293,12 @@ int main()
         printf("%d ", a[i]);
     return 0;
 }
-void replace(int *ptr, int n, int num) /* *ptr接收a陣列的位址，然後直接從記憶體中修改值*/
+void replace(int *ptr, int n, int num) /* *ptr接收a陣列的位址 */
 {
     *(ptr + n - 1) = num;
 }
 ```
-### 範例二 函數傳回指標型態的變數
-在函數名稱前加上 *
+### 範例二  由function傳出pointer
 ```c
 int *maximum(int *);
 int main()
@@ -308,12 +309,12 @@ int main()
     printf("array a = ");
     for(i=0; i<5; i++)
         printf("%d ", a[i]);
-    ptr = maximum(a);        /*傳入陣列a到maximum()*/
+    ptr = maximum(a);        /*傳入陣列a[0]的位址到maximum()*/
     printf("\nmaximum = %d", *ptr);    
     return 0;
 }
 /*接收位址，傳回位址*/
-int *maximum(int *arr) /* *arr接收a陣列的位址*/
+int *maximum(int *arr) /* *arr接收a[0]陣列的位址*/
 {
     int i,*max;        /*傳回去*/
     max = arr;         /*指標max指向a[0]*/
@@ -321,6 +322,7 @@ int *maximum(int *arr) /* *arr接收a陣列的位址*/
         if(*max < *(arr+i))
             max = arr+i;
     return max;  
-    
+}    
+
 }
 ```
