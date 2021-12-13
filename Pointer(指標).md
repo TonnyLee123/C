@@ -326,3 +326,52 @@ int *maximum(int *arr) /* *arr接收a[0]陣列的位址*/
 
 }
 ```
+# 6. 指標與字串
+不懂
+```c
+int main()
+{   
+    char name[20];
+    char *ptr = " How are you?";
+    
+    printf("What is your nama?");
+    gets(name);
+    printf("Hello, %s", name);
+    puts(ptr);
+
+    return 0;
+}
+```
+
+# 6.1 指標陣列
+```c
+/*宣告一個可以存放三個指向int指標的指標陣列*/
+int* ptr[3]
+int arr[3]
+```
+
+```c
+char str[3][10] = {"Tommy", "Tony", "Amy"};
+char* ptr[3] = {"Tommy", "Tony", "Amy"};
+
+/* ptr[0] 即指向"Tommy"的指標 */
+```
+
+# 7. 雙重指標
+指向指標的指標(pointer to pointer)
+存放某個指標在記憶體中的位址
+圖 p10-47
+
+```c
+int **ptri 
+int **ptrc
+int *(*ptri) 
+int *(*ptrc)
+
+int n = 20, *p, **pp;
+p = &n;
+pp = &p;
+圖 10-49    
+```
+
+# 二維陣列與雙重指標的關係
