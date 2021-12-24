@@ -507,9 +507,9 @@ int main()
     return 0;
 }
 
-void func(int A)   // 複製a的值，給A，兩個變數在不同的address
+void func(int a)   // 複製a的值，給A，兩個變數在不同的address
 {
-    printf("於func()裡，A的位址為: %p", &A);
+    printf("於func()裡，A的位址為: %p", &a);
 
 }
 ```
