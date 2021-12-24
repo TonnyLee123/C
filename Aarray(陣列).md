@@ -115,7 +115,7 @@ int main() {
 }
 ```
 ### 範例三
-```
+```c
 #define MAX 10
 int main()
 {   
