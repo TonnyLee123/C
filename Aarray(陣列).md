@@ -9,14 +9,15 @@
 - 陣列存放元素的複雜程度，分為一維，二維，三維等等陣列。  
 
 # 2. 一維陣列(1-Dimensional array)
-## 1-Dimensional array declearation
-```
+## 2.1 1-Dimensional array declearation
+```c
 資料型態 陣列名稱[個數];
-int score[3];  宣告整數陣列，且可以存放5個elements。
+
+int score[3];  宣告整數陣列，且可以存放3個elements。
 ```
 宣告後，編譯器將分配一個**連續**區塊的記憶體。
 
-## 範例一 殘值:超出index，或是中間的某個index沒設值。
+### 範例一 殘值:超出index，或是中間的某個index沒設值。
 ```c
 // 由output得知，score[2]和score[4]的值為原先留在**記憶體內的殘值**。
 int main() {
@@ -35,18 +36,16 @@ int main() {
     
     return 0;
 ```
-## 陣列初值的設定
+## 2.2 陣列初值的設定
 ```c
 int num[5] = {1, 2, 3, 4, 5};
 
 int num[] = {1, 2, 3}; /*若宣告時沒有將元素個數列出，編譯器會視給予得初值來決定陣列的大小。 3個初值，所以num的大小為3*/
 
-int num[3] = {6};      // 將3個elements全部設為6
-
 int num[3] = {1, 2, 3, 4, 5}  // excess element in array initializer.
 
 int i;
-int num[5] = {1, 2, 3}; // 有5個空位，以填3個，剩餘2個座位=0
+int num[5] = {1, 2, 3}; // 有5個空位，已經填3個，剩餘2個座位=0
 for(i=0; i < 5; i++)
 {
     printf("%d ", num[i]);
@@ -54,15 +53,17 @@ for(i=0; i < 5; i++)
 
 ```
 
-## 查詢陣列所佔的記憶體空間
+## 2.3 查詢陣列所佔的記憶體空間
 
 ### 範例一 sizeof()
 ```c
 int main() {
     
     int num[3] = {1, 2, 3};
+    
     int x = sizeof((num));    /*陣列所佔的位元組*/
     int y = sizeof((num[0])); /*單個元素所佔的位元組*/
+    
     int z = x / y;            /*陣列大小*/
     printf("%d %d\n", x, y);
     printf("%d", z);
@@ -71,7 +72,7 @@ int main() {
 }
 ```
 
-## 陣列的輸入與輸出
+## 2.4 陣列的輸入與輸出
 ### 範例一 由user輸入各element
 ```c
 int main() {
@@ -83,12 +84,12 @@ int main() {
         scanf("%d", &num[i]);  // &位址符號，把輸入的資料存放在指位址的記憶體內
     }
     
+    /*列印出每一個個元素*/
     for(i = 0; i < 3; i++)  
     {
         printf("num[%d] = %d\n", i, num[i]);
     }
 }
-
 ```
 ### 範例二 尋找MAX和min元素
 ```c
