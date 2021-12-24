@@ -494,7 +494,7 @@ void show(int arr[]) /*一維陣列時，[]內可以不用打元素個數*/
 - 陣列位址 == 第一個元素的位址。
 - main()裡的陣列，和傳到某函數裡的陣列是一樣的，只是名稱不同。
 ### 範例一  call by value(傳值呼叫)
-圖: p 9-31
+ <img src="https://github.com/TonnyLee123/Graphics/blob/main/IMG_3560.JPG" width = "500" height = "200" align=center />
 
 ```c
 void func(int);
